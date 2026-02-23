@@ -1,0 +1,17 @@
+{
+  "frontend/src/index.css": "Professional e-commerce design system with teal/emerald color palette in OKLCH format for both light and dark modes, custom animations, and refined typography settings.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with custom fonts (Inter), professional color tokens, refined border radius values, custom shadows (soft, card), and fade-in animation for smooth UI transitions.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all routes (storefront, admin, cart, checkout, success) wrapped in a Layout component with navigation and footer.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component providing consistent page structure with Navigation header, main content area, and footer with caffeine.ai attribution and dynamic year.",
+  "frontend/src/components/Navigation.tsx": "Sticky navigation header with store branding, navigation links to storefront and admin, and shopping cart button with item count badge.",
+  "frontend/src/hooks/useCart.ts": "Zustand store managing shopping cart state with persistence, including functions to add/remove items, update quantities, clear cart, and calculate totals.",
+  "frontend/src/hooks/useItems.ts": "React Query hooks for backend integration including fetching items list, adding new items with image upload, deleting items, and processing simulated payments.",
+  "frontend/src/pages/StorefrontPage.tsx": "Customer-facing storefront page displaying hero banner and product grid with loading states and empty state handling.",
+  "frontend/src/components/ProductCard.tsx": "Product card component showing item image, name, description, price, and add-to-cart button with visual feedback on successful addition.",
+  "frontend/src/pages/AdminPage.tsx": "Passcode-protected admin panel (passcode: 3415) with authentication form and item management interface showing ItemForm and ItemList components.",
+  "frontend/src/components/ItemForm.tsx": "Admin form for adding new products with fields for name, description, price, and image upload with preview, progress tracking, and backend integration.",
+  "frontend/src/components/ItemList.tsx": "Admin component displaying all current store items in a scrollable list with images, descriptions, prices, and delete buttons with confirmation dialogs.",
+  "frontend/src/pages/CartPage.tsx": "Shopping cart page showing all cart items with quantity controls, remove buttons, order summary, and checkout/continue shopping actions.",
+  "frontend/src/pages/CheckoutPage.tsx": "Checkout page with order summary and simulated payment processing featuring animated progress bar and backend payment integration.",
+  "frontend/src/pages/PaymentSuccessPage.tsx": "Payment confirmation page displaying success message, fake order number, and option to continue shopping after simulated transaction completion."
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Online store payment system with simulated payments and passcode-protected admin panel for managing items",
+  "architectural_notes": [
+    "Admin panel protected by hardcoded passcode (3415)",
+    "Two-interface design: admin for item management, customer for shopping",
+    "Simulated payment processing (no real transactions)",
+    "Embeddable design for Google Sites integration"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-passcode-protected-admin-panel-that-requires-entering-the-passcode-3415-to-access-the-item-management-interface",
+      "title": "Create a passcode-protected admin panel that requires entering the passcode '3415' to access the item management interface",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-item-management-functionality-in-the-admin-panel-allowing-the-admin-to-add-new-items-with-name-description-price-and-image",
+      "title": "Implement item management functionality in the admin panel allowing the admin to add new items with name, description, price, and image",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-customer-facing-storefront-page-displaying-all-available-items-in-a-grid-layout-with-item-images-names-and-prices",
+      "title": "Create a customer-facing storefront page displaying all available items in a grid layout with item images, names, and prices",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-shopping-cart-system-where-customers-can-add-items-by-clicking-them-and-view-their-cart-contents",
+      "title": "Implement a shopping cart system where customers can add items by clicking them and view their cart contents",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-simulated-payment-checkout-flow-with-a-pay-now-button-that-processes-fake-cash-transactions-and-shows-payment-confirmation",
+      "title": "Create a simulated payment checkout flow with a 'Pay Now' button that processes fake cash transactions and shows payment confirmation",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-professional-polished-visual-design-suitable-for-embedding-on-a-google-site-with-a-clean-modern-aesthetic-including-a-sophisticated-color-palette-elegant-typography-and-professional-spacing",
+      "title": "Apply a professional, polished visual design suitable for embedding on a Google site with a clean, modern aesthetic including a sophisticated color palette, elegant typography, and professional spacing",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-usedeleteitem-react-query-mutation-hook-in-frontend-src-hooks-useitems-ts-that-calls-the-backend-deleteitem-method-and-invalidates-the-items-query-cache-on-success",
+      "title": "Create a useDeleteItem React Query mutation hook in frontend/src/hooks/useItems.ts that calls the backend deleteItem method and invalidates the items query cache on success",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-delete-buttons-to-each-item-in-the-itemlist-component-frontend-src-components-itemlist-tsx-that-trigger-the-usedeleteitem-mutation-with-confirmation-dialog",
+      "title": "Add delete buttons to each item in the ItemList component (frontend/src/components/ItemList.tsx) that trigger the useDeleteItem mutation with confirmation dialog",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Passcode-protected admin panel (passcode: 3415) to add/manage store items",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Customer-facing storefront with clickable items and checkout flow",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Simulated payment system with fake cash transactions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Professional appearance suitable for embedding on Google site",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add delete functionality for items in the admin panel",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a deleteItem method to the backend main actor that accepts an item ID and removes the item from storage",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Online Store Payment System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

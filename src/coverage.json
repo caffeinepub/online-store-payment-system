@@ -1,0 +1,62 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T02:51:44.445Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-7",
+        "summary": "Add a deleteItem method to the backend main actor that accepts an item ID and removes the item from storage",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Create a useDeleteItem React Query mutation hook in frontend/src/hooks/useItems.ts that calls the backend deleteItem method and invalidates the items query cache on success",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useItems.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useItems.ts"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Add delete buttons to each item in the ItemList component (frontend/src/components/ItemList.tsx) that trigger the useDeleteItem mutation with confirmation dialog",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ItemList.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ItemList.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/ItemList.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useItems.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

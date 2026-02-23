@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-usedeleteitem-react-query-mutation-hook-in-frontend-src-hooks-useitems-ts-that-calls-the-backend-deleteitem-method-and-invalidates-the-items-query-cache-on-success",
+      "featureTitle": "Create a useDeleteItem React Query mutation hook in frontend/src/hooks/useItems.ts that calls the backend deleteItem method and invalidates the items query cache on success",
+      "files": [
+        "frontend/src/hooks/useItems.ts"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-delete-buttons-to-each-item-in-the-itemlist-component-frontend-src-components-itemlist-tsx-that-trigger-the-usedeleteitem-mutation-with-confirmation-dialog",
+      "featureTitle": "Add delete buttons to each item in the ItemList component (frontend/src/components/ItemList.tsx) that trigger the useDeleteItem mutation with confirmation dialog",
+      "files": [
+        "frontend/src/components/ItemList.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

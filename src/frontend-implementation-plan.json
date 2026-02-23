@@ -1,0 +1,40 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add item deletion functionality to admin panel",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "summary": "Create a useDeleteItem React Query mutation hook that calls the backend deleteItem method and invalidates the items query cache on success",
+      "acceptanceCriteria": [
+        "Hook provides a mutation function to delete items by ID",
+        "Successfully invalidates and refetches the items list after deletion",
+        "Handles loading and error states appropriately"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useItems.ts",
+          "operation": "modify",
+          "description": "Add a useDeleteItem mutation hook using useMutation from React Query that calls the backend deleteItem method with the item ID, invalidates the 'items' query cache on success to trigger a refetch, and provides mutation state including isLoading and error for UI feedback"
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add delete buttons to each item in the ItemList component that trigger the useDeleteItem mutation with confirmation dialog",
+      "acceptanceCriteria": [
+        "Each item in the admin list displays a delete button",
+        "Clicking delete shows a confirmation dialog before deletion",
+        "Successful deletion removes the item from the displayed list",
+        "Delete button is styled consistently with the existing teal/emerald theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ItemList.tsx",
+          "operation": "modify",
+          "description": "Import and use the useDeleteItem hook, add a delete button to each item in the list styled with the teal/emerald theme colors, implement a confirmation dialog using window.confirm before executing the deletion, call the deleteItem mutation with the item ID when confirmed, and display appropriate loading/error states during deletion"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "kind": "build_request",
+  "title": "Add item deletion functionality to admin panel",
+  "projectName": "Online Store",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Add a deleteItem method to the backend main actor that accepts an item ID and removes the item from storage",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ],
+        "quotes": [
+          "Add an option on the admin where you can delete stuff, delete items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes a deleteItem function that accepts a Text item ID",
+        "Function removes the item from the items HashMap",
+        "Function returns success/failure indication"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a useDeleteItem React Query mutation hook in frontend/src/hooks/useItems.ts that calls the backend deleteItem method and invalidates the items query cache on success",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ],
+        "quotes": [
+          "Add an option on the admin where you can delete stuff, delete items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hook provides a mutation function to delete items by ID",
+        "Successfully invalidates and refetches the items list after deletion",
+        "Handles loading and error states appropriately"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add delete buttons to each item in the ItemList component (frontend/src/components/ItemList.tsx) that trigger the useDeleteItem mutation with confirmation dialog",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-final"
+        ],
+        "quotes": [
+          "Add an option on the admin where you can delete stuff, delete items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each item in the admin list displays a delete button",
+        "Clicking delete shows a confirmation dialog before deletion",
+        "Successful deletion removes the item from the displayed list",
+        "Delete button is styled consistently with the existing teal/emerald theme"
+      ]
+    }
+  ],
+  "constraints": [
+    "Maintain the existing single-actor backend architecture",
+    "Preserve the teal/emerald color scheme in UI components",
+    "Keep the passcode protection on the admin panel unchanged"
+  ],
+  "nonGoals": [
+    "Bulk deletion of multiple items",
+    "Undo/restore functionality for deleted items",
+    "Deletion audit trail or history"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
