@@ -1,47 +1,41 @@
-import { Link, useNavigate } from '@tanstack/react-router';
-import { ShoppingCart, Store, Lock } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
+import { ShoppingCart, Settings } from 'lucide-react';
 import { useCart } from '../hooks/useCart';
 
 export default function Navigation() {
-  const navigate = useNavigate();
-  const { getCartCount } = useCart();
-  const cartCount = getCartCount();
+  const { items } = useCart();
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 font-display font-semibold text-lg hover:text-primary transition-colors">
-            <Store className="h-6 w-6 text-primary" />
-            <span>Shop Simulator</span>
+    <header className="w-full border-b bg-card">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="text-xl font-semibold hover:text-primary transition-colors">
+            Checkout
           </Link>
           
-          <nav className="flex items-center gap-6">
-            <Link 
-              to="/" 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Store
-            </Link>
+          <div className="flex items-center gap-4">
             <Link 
               to="/admin" 
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <Lock className="h-4 w-4" />
-              Admin
+              <Settings className="h-4 w-4" />
+              <span className="hidden sm:inline">Admin</span>
             </Link>
-            <button
-              onClick={() => navigate({ to: '/cart' })}
-              className="relative flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+            
+            <Link 
+              to="/cart" 
+              className="relative flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-semibold">
-                  {cartCount}
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {itemCount}
                 </span>
               )}
-            </button>
-          </nav>
+              <span className="hidden sm:inline">Cart</span>
+            </Link>
+          </div>
         </div>
       </div>
     </header>

@@ -1,38 +1,43 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add item deletion functionality to admin panel",
+  "title": "Restore admin panel with passcode-protected product management interface",
   "requirements": [
     {
-      "id": "REQ-8",
-      "summary": "Create a useDeleteItem React Query mutation hook that calls the backend deleteItem method and invalidates the items query cache on success",
+      "id": "REQ-14",
+      "summary": "Restore the admin panel interface displaying passcode-protected ItemForm and ItemList components",
       "acceptanceCriteria": [
-        "Hook provides a mutation function to delete items by ID",
-        "Successfully invalidates and refetches the items list after deletion",
-        "Handles loading and error states appropriately"
+        "The admin interface displays the passcode entry field requiring '3415' before showing the add product form",
+        "After entering the correct passcode, the ItemForm component becomes visible with fields for name, description, price, and image upload",
+        "The ItemList component displays all existing products with delete buttons",
+        "The admin panel layout matches the previous implementation structure"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/hooks/useItems.ts",
+          "path": "frontend/src/pages/AdminPage.tsx",
           "operation": "modify",
-          "description": "Add a useDeleteItem mutation hook using useMutation from React Query that calls the backend deleteItem method with the item ID, invalidates the 'items' query cache on success to trigger a refetch, and provides mutation state including isLoading and error for UI feedback"
+          "description": "Verify that the AdminPage component correctly renders both the passcode-protected ItemForm component and the ItemList component. Ensure the passcode '3415' is required before the ItemForm becomes visible. The ItemForm should display fields for name, description, price, and image upload with progress tracking. The ItemList should display all products with delete functionality. Use the blob-storage component for image upload handling. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-9",
-      "summary": "Add delete buttons to each item in the ItemList component that trigger the useDeleteItem mutation with confirmation dialog",
+      "id": "REQ-15",
+      "summary": "Ensure the admin panel remains accessible within the application's routing structure",
       "acceptanceCriteria": [
-        "Each item in the admin list displays a delete button",
-        "Clicking delete shows a confirmation dialog before deletion",
-        "Successful deletion removes the item from the displayed list",
-        "Delete button is styled consistently with the existing teal/emerald theme"
+        "The admin route exists and is navigable",
+        "Users can access the admin panel to manage products",
+        "The admin functionality works independently from the main checkout flow"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ItemList.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Import and use the useDeleteItem hook, add a delete button to each item in the list styled with the teal/emerald theme colors, implement a confirmation dialog using window.confirm before executing the deletion, call the deleteItem mutation with the item ID when confirmed, and display appropriate loading/error states during deletion"
+          "description": "Verify that the admin route is properly configured in the TanStack Router setup and that it correctly renders the AdminPage component. Ensure the route is accessible and navigable within the application. Confirm that the Layout component wraps the admin route appropriately."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Add a navigation link to the admin panel in the Navigation component to make it easily accessible from other pages. Include an admin icon or text link that routes to the admin page."
         }
       ]
     }

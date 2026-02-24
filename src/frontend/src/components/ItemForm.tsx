@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { useAddItem } from '../hooks/useItems';
 import { ExternalBlob } from '../backend';
-import { Loader2, Upload, Plus } from 'lucide-react';
+import { Loader2, Upload, Plus, Lock } from 'lucide-react';
 
 export default function ItemForm() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [passcode, setPasscode] = useState('');
+  const [passcodeError, setPasscodeError] = useState('');
+  
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -12,6 +16,17 @@ export default function ItemForm() {
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const addItemMutation = useAddItem();
+
+  const handlePasscodeSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passcode === '3415') {
+      setIsUnlocked(true);
+      setPasscodeError('');
+    } else {
+      setPasscodeError('Incorrect passcode. Please try again.');
+      setPasscode('');
+    }
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -74,6 +89,50 @@ export default function ItemForm() {
     }
   };
 
+  // Show passcode lock if not unlocked
+  if (!isUnlocked) {
+    return (
+      <div className="bg-card rounded-lg border shadow-sm p-6">
+        <div className="flex flex-col items-center justify-center py-8">
+          <div className="bg-primary/10 rounded-full p-4 mb-4">
+            <Lock className="h-8 w-8 text-primary" />
+          </div>
+          <h2 className="text-xl font-bold mb-2">Protected Access</h2>
+          <p className="text-sm text-muted-foreground mb-6 text-center">
+            Enter the passcode to add new items
+          </p>
+          
+          <form onSubmit={handlePasscodeSubmit} className="w-full max-w-xs space-y-4">
+            <div>
+              <input
+                type="password"
+                value={passcode}
+                onChange={(e) => {
+                  setPasscode(e.target.value);
+                  setPasscodeError('');
+                }}
+                className="w-full px-4 py-2 border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary text-center text-lg tracking-wider"
+                placeholder="Enter passcode"
+                autoFocus
+              />
+              {passcodeError && (
+                <p className="text-sm text-destructive mt-2 text-center">{passcodeError}</p>
+              )}
+            </div>
+            
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+            >
+              Unlock
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  // Show the item form once unlocked
   return (
     <div className="bg-card rounded-lg border shadow-sm p-6">
       <h2 className="text-xl font-bold mb-4 flex items-center gap-2">

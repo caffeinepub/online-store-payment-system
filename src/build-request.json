@@ -1,74 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Add item deletion functionality to admin panel",
-  "projectName": "Online Store",
+  "title": "Restore admin panel with passcode-protected product management interface",
+  "projectName": "Checkout Widget",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-7",
-      "text": "Add a deleteItem method to the backend main actor that accepts an item ID and removes the item from storage",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "msg-final"
-        ],
-        "quotes": [
-          "Add an option on the admin where you can delete stuff, delete items."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Backend exposes a deleteItem function that accepts a Text item ID",
-        "Function removes the item from the items HashMap",
-        "Function returns success/failure indication"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create a useDeleteItem React Query mutation hook in frontend/src/hooks/useItems.ts that calls the backend deleteItem method and invalidates the items query cache on success",
+      "id": "REQ-14",
+      "text": "Restore the admin panel interface that displays both the passcode-protected ItemForm component for adding products and the ItemList component for viewing/managing existing products",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-final"
+          "msg-5"
         ],
         "quotes": [
-          "Add an option on the admin where you can delete stuff, delete items."
+          "Make sure to add the old block, like the one that says where you can add the products and the passcode. Like the admin."
         ]
       },
       "acceptanceCriteria": [
-        "Hook provides a mutation function to delete items by ID",
-        "Successfully invalidates and refetches the items list after deletion",
-        "Handles loading and error states appropriately"
+        "The admin interface displays the passcode entry field requiring '3415' before showing the add product form",
+        "After entering the correct passcode, the ItemForm component becomes visible with fields for name, description, price, and image upload",
+        "The ItemList component displays all existing products with delete buttons",
+        "The admin panel layout matches the previous implementation structure"
       ]
     },
     {
-      "id": "REQ-9",
-      "text": "Add delete buttons to each item in the ItemList component (frontend/src/components/ItemList.tsx) that trigger the useDeleteItem mutation with confirmation dialog",
+      "id": "REQ-15",
+      "text": "Ensure the admin panel remains accessible within the application's routing structure",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-final"
+          "msg-5"
         ],
         "quotes": [
-          "Add an option on the admin where you can delete stuff, delete items."
+          "Make sure to add the old block, like the one that says where you can add the products and the passcode. Like the admin."
         ]
       },
       "acceptanceCriteria": [
-        "Each item in the admin list displays a delete button",
-        "Clicking delete shows a confirmation dialog before deletion",
-        "Successful deletion removes the item from the displayed list",
-        "Delete button is styled consistently with the existing teal/emerald theme"
+        "The admin route exists and is navigable",
+        "Users can access the admin panel to manage products",
+        "The admin functionality works independently from the main checkout flow"
       ]
     }
   ],
   "constraints": [
-    "Maintain the existing single-actor backend architecture",
-    "Preserve the teal/emerald color scheme in UI components",
-    "Keep the passcode protection on the admin panel unchanged"
+    "Maintain the existing passcode '3415' for admin access",
+    "Preserve the existing ItemForm and ItemList component functionality",
+    "Keep the backend deleteItem and addItem methods unchanged"
   ],
   "nonGoals": [
-    "Bulk deletion of multiple items",
-    "Undo/restore functionality for deleted items",
-    "Deletion audit trail or history"
+    "Changing the admin passcode",
+    "Modifying the product data structure",
+    "Adding new admin features beyond restoring existing functionality"
   ],
   "imageRequirements": {
     "required": [],

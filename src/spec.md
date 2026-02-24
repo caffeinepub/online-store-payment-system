@@ -1,11 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Add item deletion functionality to the admin panel.
+**Goal:** Restore the admin panel with passcode-protected product management interface.
 
 **Planned changes:**
-- Add deleteItem method to backend that removes items from storage
-- Create useDeleteItem React Query mutation hook in the frontend
-- Add delete buttons with confirmation dialogs to each item in the admin ItemList component
+- Re-add the admin panel interface that was previously removed
+- Display the passcode entry field requiring '3415' to unlock the product form
+- Show the ItemForm component for adding products after passcode verification
+- Display the ItemList component showing all existing products with delete functionality
+- Ensure the admin route is accessible within the application
 
-**User-visible outcome:** Admin users can delete items from the store inventory by clicking a delete button on each item, with a confirmation dialog to prevent accidental deletions.
+**User-visible outcome:** Users can access the admin panel, enter the passcode '3415', and manage products by adding new items or deleting existing ones through the restored interface.

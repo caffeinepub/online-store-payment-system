@@ -1,15 +1,15 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Online store payment system with simulated payments and passcode-protected admin panel for managing items",
+  "projectStateVersion": 11,
+  "summary": "Embedded checkout component for Google Sites with admin panel for managing items and simulated payment processing",
   "architectural_notes": [
     "Admin panel protected by hardcoded passcode (3415)",
     "Two-interface design: admin for item management, customer for shopping",
     "Simulated payment processing (no real transactions)",
-    "Embeddable design for Google Sites integration"
+    "Designed as embeddable checkout component, not standalone website"
   ],
   "known_issues": [],
-  "isFixRequest": false,
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-passcode-protected-admin-panel-that-requires-entering-the-passcode-3415-to-access-the-item-management-interface",
@@ -74,6 +74,46 @@
         "REQ-9"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-full-website-navigation-structure-and-convert-the-application-into-a-streamlined-checkout-component-suitable-for-embedding-on-a-google-site",
+      "title": "Remove the full website navigation structure and convert the application into a streamlined checkout component suitable for embedding on a Google site",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-navigation-header-with-a-simple-checkout-title-at-the-top-of-the-application",
+      "title": "Replace the current navigation header with a simple 'Checkout' title at the top of the application",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-simplify-the-routing-structure-to-focus-on-the-checkout-flow-product-selection-cart-and-payment-without-presenting-it-as-a-multi-page-website",
+      "title": "Simplify the routing structure to focus on the checkout flow (product selection, cart, and payment) without presenting it as a multi-page website",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-passcode-entry-mechanism-to-the-itemform-component-frontend-src-components-itemform-tsx-that-requires-users-to-enter-the-admin-passcode-3415-before-the-add-item-form-becomes-accessible",
+      "title": "Add a passcode entry mechanism to the ItemForm component (frontend/src/components/ItemForm.tsx) that requires users to enter the admin passcode '3415' before the add item form becomes accessible",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-admin-panel-remains-accessible-within-the-application-s-routing-structure",
+      "title": "Ensure the admin panel remains accessible within the application's routing structure",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -112,6 +152,26 @@
       "summary": "Add a deleteItem method to the backend main actor that accepts an item ID and removes the item from storage",
       "reqIds": [
         "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Redesign as embedded checkout component (not full website) with 'Checkout' header",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add lock/security mechanism to control who can add items",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Restore the admin panel interface that displays both the passcode-protected ItemForm component for adding products and the ItemList component for viewing/managing existing products",
+      "reqIds": [
+        "REQ-14"
       ],
       "status": "pending"
     }

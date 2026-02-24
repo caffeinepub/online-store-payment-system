@@ -58,13 +58,11 @@ export default function CheckoutPage() {
   const total = getCartTotal() / 100;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="px-4 py-6">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Checkout</h1>
-        
-        <div className="bg-card rounded-lg border p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">Order Summary</h2>
-          <div className="space-y-3 mb-6">
+        <div className="bg-card rounded-lg border p-4 mb-4">
+          <h2 className="text-lg font-bold mb-3">Order Summary</h2>
+          <div className="space-y-2 mb-4">
             {items.map((item) => (
               <div key={item.id} className="flex justify-between text-sm">
                 <span className="text-muted-foreground">
@@ -75,27 +73,27 @@ export default function CheckoutPage() {
                 </span>
               </div>
             ))}
-            <div className="border-t pt-3 flex justify-between text-lg font-bold">
+            <div className="border-t pt-2 flex justify-between font-bold">
               <span>Total Amount</span>
               <span className="text-primary">${total.toFixed(2)}</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-card rounded-lg border p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <div className="bg-card rounded-lg border p-4 mb-4">
+          <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-primary" />
             Simulated Payment
           </h2>
-          <div className="bg-muted/50 rounded-md p-4 mb-4">
-            <p className="text-sm text-muted-foreground">
+          <div className="bg-muted/50 rounded-md p-3 mb-4">
+            <p className="text-xs text-muted-foreground">
               This is a simulated payment system using fake cash. No real transactions will be processed.
             </p>
           </div>
 
           {isProcessing && (
-            <div className="mb-6">
-              <div className="flex justify-between text-sm mb-2">
+            <div className="mb-4">
+              <div className="flex justify-between text-xs mb-2">
                 <span>Processing payment...</span>
                 <span className="font-medium">{progress}%</span>
               </div>
@@ -111,11 +109,11 @@ export default function CheckoutPage() {
           <button
             onClick={handlePayment}
             disabled={isProcessing}
-            className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
           >
             {isProcessing ? (
               <>
-                <Loader2 className="h-5 w-5 animate-spin" />
+                <Loader2 className="h-4 w-4 animate-spin" />
                 Processing Payment...
               </>
             ) : (
@@ -129,7 +127,7 @@ export default function CheckoutPage() {
         <button
           onClick={() => navigate({ to: '/cart' })}
           disabled={isProcessing}
-          className="w-full px-6 py-3 border rounded-md hover:bg-accent transition-colors font-medium disabled:opacity-50"
+          className="w-full px-4 py-2 border rounded-md hover:bg-accent transition-colors font-medium disabled:opacity-50 text-sm"
         >
           Back to Cart
         </button>
